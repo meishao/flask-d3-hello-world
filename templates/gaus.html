@@ -49,9 +49,12 @@ circle {
 </head>
 <body>
 
-    <h1>Hello World using d3.js &amp; Flask</h1>
+    <h1>Simple example using d3.js &amp; Flask</h1>
 
-    <p>Taken from Dan F.M.'s <a href="https://github.com/dfm/flask-d3-hello-world">flask-d3-hellow-world</a> and forked <a href="https://github.com/cranmer/flask-d3-hello-world">here</a>.
+    {% if mux %}
+      <p>The point cloud has a mux={{mux}} muy={{muy}}</p>
+    {% endif %}
+
     <div id="info">
         <div id="point-info">
             Click on a point.
@@ -119,7 +122,9 @@ circle {
                     .on("mousedown", show_info);
         };
 
-        d3.json("/data", callback);
+        {% if mux %}
+            d3.json("/gdata?mux={{mux}}&muy={{muy}}", callback);
+        {% endif %}
 
     </script>
 
