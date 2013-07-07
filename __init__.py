@@ -10,7 +10,7 @@ import numpy as np
 app = flask.Flask(__name__)
 
 
-@app.route("/")
+@app.route("/hello")
 def index():
     """
     When you request the root path, you'll get the index.html template.
@@ -19,7 +19,7 @@ def index():
     return flask.render_template("index.html")
 
 
-@app.route("/gaus")
+@app.route("/")
 def gindex():
     """
     When you request the gaus path, you'll get the gaus.html template.
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     port = 8000
 
     # Open a web browser pointing at the app.
-    os.system("open http://localhost:{0}/gaus".format(port))
+    os.system("open http://localhost:{0}/".format(port))
 
     # Set up the development server on port 8000.
     app.debug = True

@@ -51,8 +51,21 @@ circle {
 
     <h1>Simple example using d3.js &amp; Flask</h1>
 
+
     {% if mux %}
       <p>The point cloud has a mux={{mux}} muy={{muy}}</p>
+        <form action="gaus">
+            mean x = <input type="text" name="mux" value="{{mux}}">
+            mean y = <input type="text" name="muy" value="{{muy}}">
+            <input type="submit" value="Submit">
+        </form>
+    {% else %}
+      <p>The point cloud has a mux=3. muy=3.</p>
+        <form action="gaus">
+            mean x = <input type="text" name="mux" value="3.">
+            mean y = <input type="text" name="muy" value="3.">
+            <input type="submit" value="Submit">
+        </form>
     {% endif %}
 
     <div id="info">
@@ -93,11 +106,15 @@ circle {
                            .attr("transform", "translate(0, " + h + ")");
         svg.append("svg:g").attr("class", "y axis");
 
+        // Format the numbers 
+        var numFormat = d3.format(".2f")
+
         // Show the information about a particular point.
         var show_info = function (d) {
             d3.select("#point-info").text("This is point " + d._id + ". "
-                + "It has the coordinates (" + d.x + ", " + d.y + ").");
+                + "It has the coordinates (" + numFormat(d.x) + ", " + numFormat(d.y) + ").");
         };
+
 
         // Load the data.
         var callback = function (data) {
