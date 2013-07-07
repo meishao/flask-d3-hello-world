@@ -1,11 +1,14 @@
-# flask+d3 Hello World
+# flask+d3 for TheoryAndPractice.org
 
 ### author
 
-* [Dan Foreman-Mackey](http://danfm.ca/)
+* [Kyle Cranmer](http://theoryandpractice.org/)
+
 
 ### contributors
 
+Adapted from [flask-d3-hello-world](https://github.com/dfm/flask-d3-hello-world)
+* [Dan Foreman-Mackey](http://danfm.ca/)
 * [David W. Hogg](http://cosmo.nyu.edu/hogg/)
 
 ### do it
