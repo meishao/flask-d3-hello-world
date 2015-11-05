@@ -68,10 +68,6 @@ def gdata(ndata=100,mux=.5,muy=0.5):
 
     """
 
-    """Instead of getting values from URL, try from request object"""
-    mux = request.args.get('mux', '')
-    muy = request.args.get('muy', '')
-
     x = np.random.normal(mux,.5,ndata)
     y = np.random.normal(muy,.5,ndata)
     A = 10. ** np.random.rand(ndata)
